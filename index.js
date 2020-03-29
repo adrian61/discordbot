@@ -57,7 +57,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
         channel.send('<@' + newMember.user.id + ">" + ' joined to the Voice Channel ' + newMember.guild.member(newMember.user.id).voiceChannel.name);
     } else if (newUserChannel === undefined) {
         let channel = client.channels.find(ch => ch.name === 'general');
-        channel.send('<@' + newMember.user.id + ">" + ' disconnected from server. ');
+        channel.send('<@' + newMember.user.id + ">" + ' disconnected from the server. ');
     }
 });
 
