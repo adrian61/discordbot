@@ -25,7 +25,7 @@ client.on('message', message => {
         }]);
     }
     if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
-        console.log('The logs channel does not exist and tried to create the channel but I am lacking permissions')
+        console.log('The logs channel does not exist and tried to create the channel but I am lacking permissions.')
     }
     if (command === 'mv') {
         commandMove.move(client, message, args);
@@ -45,8 +45,8 @@ client.on('message', message => {
         commandMoveChannel.moveChannel(args, message);
     }
     if (command === 'xd') {
-
-
+        let channel = client.channels.find(ch => ch.name === 'main');
+        channel.send('You won a voucher for a coronavirus test.');
     }
 });
 client.on('voiceStateUpdate', (oldMember, newMember) => {
@@ -56,6 +56,8 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
         let channel = client.channels.find(ch => ch.name === 'general');
         channel.send('<@' + newMember.user.id + ">" + ' joined to the Voice Channel ' + newMember.guild.member(newMember.user.id).voiceChannel.name);
     } else if (newUserChannel === undefined) {
+        let channel = client.channels.find(ch => ch.name === 'general');
+        channel.send('<@' + newMember.user.id + ">" + ' disconnected from server. ');
     }
 });
 
