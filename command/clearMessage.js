@@ -3,7 +3,8 @@ const helper = require('../helper.js');
 function clearMessage(message) {
     let messagesDeleted;
     if (message.channel.type === 'text') {
-        message.channel.fetchMessages()
+        let messageCount = 50;
+        message.channel.fetchMessages({limit: messageCount})
             .then(messages => {
                 message.channel.bulkDelete(messages);
                 messagesDeleted = messages.array().length;

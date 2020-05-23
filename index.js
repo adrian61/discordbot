@@ -1,18 +1,18 @@
 const Discord = require('discord.js');
-const config = require('./config.json');
 const commandDisconnect = require('./command/disconnect.js');
 const commandHelp = require('./command/help.js');
 const commandMove = require('./command/move.js');
 const commandClearMessage = require('./command/clearMessage.js');
 const standardMessages = require('./standardMessages.js');
 const commandMoveChannel = require('./command/moveChannel.js');
-
+const prefix = process.env.PREFIX;
+const token = process.env.TOKEN;
 const client = new Discord.Client();
 
 client.on('message', message => {
 
-    if (!message.content.startsWith(config.prefix)) return;
-    const withoutPrefix = message.content.slice(config.prefix.length);
+    if (!message.content.startsWith(prefix)) return;
+    const withoutPrefix = message.content.slice(prefix.length);
     const split = withoutPrefix.split(/ +/);
     const command = split[0];
     const args = split.slice(1);
@@ -62,4 +62,4 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 });
 
 
-client.login(config.token);
+client.login(token);
