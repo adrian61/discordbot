@@ -5,7 +5,10 @@ function help(message){
         "!mv - move user's to user \texample:\t- !mv @MoveToUser @nick1 @nick2 @nick3 @nick4  or !mv @MoveToUser @nick1\n" +
         "!clearmessage - clear last 50 messages on fetch text channel \t example:\t !clearmessage\n" +
         "!chmv = move user between channels\t example:\t - !chmv FirstChannel SecondChannel\n"+
-        "!help - documentation```");
+        "!help - documentation" +
+        "!serverlist - show voice server list\n" +
+        "!setserver - set server\t example:\t- !setserver us-central\n" +
+        "```");
     helper.writeLogs(message, '<@' + message.author.id + "> " + 'used help ');
 }
 module.exports ={
