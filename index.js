@@ -48,6 +48,10 @@ client.on('message', message => {
         let channel = client.channels.find(ch => ch.name === 'main');
         channel.send('You won a voucher for a coronavirus test.');
     }
+    if (command === 'serverlist') {
+        let channel = client.channels.find(ch => ch.name === 'main');
+        channel.send(message.guild.fetchVoiceRegions());
+    }
 });
 client.on('voiceStateUpdate', (oldMember, newMember) => {
     let newUserChannel = newMember.voiceChannel;
